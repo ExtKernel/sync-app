@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# User Password Update Frontend
+A frontend app for [Identity Provider Synchronization Service](https://github.com/ExtKernel/idp-sync-service.git) to change and synchronize user passwords. This exists because the [service](https://github.com/ExtKernel/idp-sync-service.git) can't retrieve user passwords from all clients (as of 17.08.2024, it can't retrieve passwords from any of them), so the only control over passwords is resetting them to a given value. This app provides a frontend for users to set and synchronize their passwords across all clients.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Usage
+1) Clone the repository:
+    ```bash
+      git clone https://github.com/ExtKernel/user-password-update-frontend.git
+    ```
+2) Navigate to the directory:
+    ```bash
+      cd user-password-update-frontend
+    ```
+3) Create an `.env` file in the project directory:
+    ```bash
+      touch .env
+    ```
+4) Set following environment variables in the file:
+    ```
+       REACT_APP_SYNC_SERVICE_CLIENT_ID=<idp-sync-service-oauth2-client-id>
+       REACT_APP_SYNC_SERVICE_CLIENT_SECRET=<idp-sync-service-oauth2-client-secret>
+       REACT_APP_OAUTH2_PROVIDER_TOKEN_URL=<idp-sync-service-oauth2-provider-token-url>
+       REACT_APP_SYNC_SERVICE_USER_API_URL=<idp-sync-service-user-endpoint-full-url>
+    ```
+    Explanation:
+    - REACT_APP_SYNC_SERVICE_CLIENT_ID - the `client ID` that the [service](https://github.com/ExtKernel/idp-sync-service.git) has in its OAuth2 provider
+    - REACT_APP_SYNC_SERVICE_CLIENT_SECRET - the `client secret` that the [service](https://github.com/ExtKernel/idp-sync-service.git) has in its OAuth2 provider
+    - REACT_APP_OAUTH2_PROVIDER_TOKEN_URL - the `token endpoint` full URL of the OAuth2 provider that the [service](https://github.com/ExtKernel/idp-sync-service.git) is registered in
+    - REACT_APP_SYNC_SERVICE_USER_API_URL - the `user` endpoint full URL of the [service](https://github.com/ExtKernel/idp-sync-service.git)
+5) Run the app:
+    ```bash
+      npm start
+    ```

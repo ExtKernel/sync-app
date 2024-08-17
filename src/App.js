@@ -32,7 +32,6 @@ function App() {
       .then(response => response.json())
       .then(data => {
         if (data.access_token) {
-          console.log('Access Token:', data.access_token);
           setErrorMessage('');
           setSuccessMessage('Login successful!');
           setIsLoggedIn(true);
